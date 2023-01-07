@@ -16,14 +16,17 @@ function Movies({setIsFiltered, isFiltered, isDefault, movies, fetchMovies, load
 
    const navigate = useNavigate()
    function clickedMovies(event){
-    event.preventDefault()
+       event.preventDefault()
+   
+       if (clicked === '' || clicked.length < 3) {
+        return
+       }
 
     fetchMovies(clicked)
    }
 
 
     function filterMovies(filter) {
-console.log(filter);
         if (filter === 'VALUE1') {
            setBooks( movies.slice().sort((a,b) => a.Year - b.Year))
         }
@@ -49,6 +52,7 @@ function redirect(search) {
              <div className="row">
     <header>
         <div className="header__wrapper">
+       
             
             <h1 className="movies__title">Browse your favourite movies </h1>
             <div className="input__wrapper">
@@ -58,7 +62,7 @@ function redirect(search) {
                         if (event.keyCode === 13) {
                             clickedMovies(event.target.value)
 
-                        }}} className="header__input" 
+                        }}} className="header__input movies__input" 
 
                     />
 
@@ -142,12 +146,9 @@ loading === true ?
                 </div>
                 </div>
                 )).slice(0,6)
-
-
             }
             </> : 
             <div className="popcorn__container">
-
             <img className='popcorn__img' src={Popcorn} alt="" />
             <br />
             <h3 className='popcorn__title'>You haven't searched any movies yet...</h3>

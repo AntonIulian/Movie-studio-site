@@ -8,6 +8,10 @@ import {useNavigate} from 'react-router-dom'
 function Home({homeSearch, setIsFiltered}) {
     const [query, setQuery] = useState("")
     function submitted(event) {
+        if (query === '' || query.length < 3) {
+            return
+            
+        }
         homeSearch(query)
         navigate('/movies')
 setIsFiltered(true)

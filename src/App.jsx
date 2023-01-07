@@ -22,17 +22,13 @@ fetchMovies(event)
 
 
     async function fetchMovies(event) {
-      
+      setLoading(false)
         const {data} = await axios.get(`https://www.omdbapi.com/?i=tt3896198&apikey=91625aff&s=${event}`)
         const {Search} = data
-        console.log(Search);
         setMovies(Search)
         setIsFiltered(false)
-        setTimeout(() => {
-          
-          setLoading(true)
-        }, 500);
-        setLoading(false)
+       
+        setLoading(true)
         if (event === undefined) {
 
             setIsDefault(false)

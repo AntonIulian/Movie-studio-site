@@ -27,7 +27,7 @@ position: relative;
     justify-content: center;
     align-items: center;
     margin-top: 32px;
-    margin-bottom: 120px;
+    margin-bottom: 90px;
     padding: 12px;
 }
 .header__btn {
@@ -136,6 +136,7 @@ position: relative;
         height: 100%;
     }
     .section__nav--wrapper {
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -143,6 +144,7 @@ position: relative;
     }
     .section__nav--title {
         font-size: 32px;
+        margin-right: 16px;
 
     }
     .movies__filter {
@@ -157,7 +159,7 @@ position: relative;
      height: 100%;
     }
     .container {
-        padding: 32px 0;
+        padding: 32px 16px;
     }
     .more {
         font-size: 48px;
@@ -213,6 +215,7 @@ position: relative;
     }
     .movie__img {
         width: 100%;
+        height: 100%;
     }
     textarea {
         resize: none;
@@ -273,6 +276,7 @@ position: relative;
         
     }
     .popcorn__img {
+        width: 100%;
         max-width: 400px;
         max-height: 400px;
         margin-top: 32px;
@@ -285,6 +289,7 @@ position: relative;
     }
     .popcorn__title {
         font-size: 32px;
+        text-align: center;
     }
     .header__form {
         display: flex;
@@ -305,7 +310,10 @@ position: relative;
         margin-bottom: 8px;
       }
       .select__container{
-        padding: 0 48px;
+        background-color: #dfdfdf;
+        padding: 32px;
+        border: 2px solid black;
+        border-radius: 24px;
       }
       .book__title--skeleton {
         height: 21px;
@@ -324,7 +332,6 @@ position: relative;
         width: calc(100% / 3);
       }
       .back__wrapper{
-        padding: 0 48px;
       }
       .header__img {
         width: 100%;
@@ -373,6 +380,7 @@ position: relative;
         
       }
       @media (max-width:600px) {
+        
         .header__input{
             width: 320px;
         }
@@ -388,5 +396,24 @@ position: relative;
         .thing{
             width: 400px;
         }
+        .movies__input {
+            width: 360px;
+        }
 
+      }
+      @media (max-width: 500px) {
+        .header__form {
+            display: flex;
+            flex-direction: column;
+        }
+        .header__input {
+            width: 260px;
+            margin-bottom: 16px;
+        }
+        ::-webkit-input-placeholder {
+            color: #fff;
+        }
+        .movie__content--wrapper {
+            display: none;
+        }
       }

@@ -19,8 +19,10 @@ const {id} = useParams()
 const [movie, setMovie] = useState([])
 
 async function fetchMovie() {
+    setLoading(false)
     const {data} = await axios.get(`https://www.omdbapi.com/?i=${id}&apikey=91625aff`)
     setMovie(data)
+    setLoading(true)
 
 }
 useEffect(() => {
@@ -34,14 +36,7 @@ useEffect(() => {
 
 const response = Object.values(movie)
 
-useEffect(() =>{
-        setTimeout(() => {
 
-                setLoading(true)
-        },1000);
-
-    
-})
     return (
 
 
