@@ -17,8 +17,9 @@ function Movies({
   loading,
   setIsDefault,
 }) {
-  const [books, setBooks] = useState([]);
   const [clicked, setClicked] = useState("");
+  const [books, setBooks] = useState([]);
+
 
   const navigate = useNavigate();
   function clickedMovies(event) {
@@ -27,10 +28,10 @@ function Movies({
     if (clicked === "" || clicked.length < 3) {
       return;
     }
-
     fetchMovies(clicked);
+    
   }
-
+   
   function filterMovies(filter) {
     if (filter === "VALUE1") {
       setBooks(movies.slice().sort((a, b) => a.Year - b.Year));
@@ -48,7 +49,6 @@ function Movies({
   function redirect(search) {
 
         navigate(`/movies/${search}`);
-        setIsDefault(false)
 
   }
 
