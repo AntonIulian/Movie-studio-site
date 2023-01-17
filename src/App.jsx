@@ -23,18 +23,19 @@ fetchMovies(event)
 
     async function fetchMovies(event) {
       setLoading(false)
+
         const {data} = await axios.get(`https://www.omdbapi.com/?i=tt3896198&apikey=91625aff&s=${event}`)
         const {Search} = data
         setMovies(Search)
         setIsFiltered(false)
-       
+        
         setLoading(true)
         if (event === undefined) {
-
-            setIsDefault(false)
+          
+          setIsDefault(false)
         }
         else {
-            setIsDefault(true)
+          setIsDefault(true)
         }
 }
 useEffect(() => {
@@ -59,8 +60,8 @@ useEffect(() => {
       <Routes>
      
         <Route path='/' element={<Home setIsFiltered={setIsFiltered} homeSearch={homeSearch} ></Home>}></Route>
-        <Route path='/movies' element={<Movies loading={loading} setLoading={setLoading} redirect={redirect} fetchMovies={fetchMovies} setIsFiltered={setIsFiltered} movies={movies} isDefault={isDefault} isFiltered={isFiltered}  ></Movies>}></Route>
-        <Route path='/movies/:id' element={<Movie  isFiltered={isFiltered} setIsFiltered={setIsFiltered} redirect={redirect} movies={movies}></Movie>}></Route>
+        <Route path='/movies' element={<Movies loading={loading} setLoading={setLoading} redirect={redirect} fetchMovies={fetchMovies} setIsDefault={setIsDefault} setIsFiltered={setIsFiltered} movies={movies} isDefault={isDefault} isFiltered={isFiltered}  ></Movies>}></Route>
+        <Route path='/movies/:id' element={<Movie setMovies={setMovies}  isFiltered={isFiltered} setIsFiltered={setIsFiltered} redirect={redirect} movies={movies}></Movie>}></Route>
         
         
 

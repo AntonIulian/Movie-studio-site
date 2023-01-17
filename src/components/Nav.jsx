@@ -2,7 +2,10 @@ import React from 'react';
 import CinemaImage from '../assets/Cinema.png'
 import {Link} from 'react-router-dom'
 import './Components.css'
-function Nav() {
+function Nav({setIsDefault}) {
+    function popcorn() {
+setIsDefault(false)
+    }
     return (
         <div id='body' className="row">
             <div className="container">
@@ -15,7 +18,7 @@ function Nav() {
 
 <ul className='nav__list'>
     <li className='nav__list--links'>
-        <Link className='nav__list--link  nav__link--hover white' to='/'>Home</Link>
+        <Link className='nav__list--link  nav__link--hover white'onClick={(e) => popcorn()}   to='/'>Home</Link>
     </li>
     <li className='nav__list--links'>
         <Link className='nav__list--link  nav__link--hover white'  to='/movies'>Find Movies</Link>
